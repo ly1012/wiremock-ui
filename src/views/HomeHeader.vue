@@ -61,7 +61,7 @@ const clearSelected = () => {
 }
 
 const goToGitHub = () => {
-    window.open('https://liyunx.com', '_blank')
+    window.open('https://github.com/ly1012/wiremock-ui', '_blank')
 }
 
 </script>

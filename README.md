@@ -1,51 +1,35 @@
+WireMock UI 基於 [Wiremock](https://wiremock.org/) Admin API 開發，用於 Stub Mapping 數據的可視化管理。
 
-WireMock UI 基于 [Wiremock](https://wiremock.org/) Admin API 开发，用于 Stub Mapping 数据的可视化管理。
+本項目為前端項目，僅提供可視化數據管理功能，不提供 Wiremock 實例服務管理、用戶管理等功能。
 
-本项目为前端项目，仅提供可视化数据管理功能，不提供 Wiremock 实例服务管理、用户管理等功能。
+如有需要請使用官方的 [Wiremock Cloud](https://www.wiremock.io/) 服務，或自行開發。
 
-如有需要请使用官方的 [Wiremock Cloud](https://www.wiremock.io/) 服务，或自行开发。
+## 1. 使用說明
 
-## 1. 使用说明
+**使用步驟**
 
-**使用步骤**
+1. 啟動一個 Wiremock 服務，參考 [webhooks-and-callbacks](https://wiremock.org/docs/webhooks-and-callbacks/)。
+2. 訪問 https://qadoc.cn/wiremock，添加一個項目，填寫服務地址。
+3. 選擇剛添加的項目，開始使用（項目數據存放在瀏覽器的 LocalStorage）。
 
-1. 启动一个 Wiremock 服务，参考 [webhooks-and-callbacks](https://wiremock.org/docs/webhooks-and-callbacks/)。
-2. 访问 https://qadoc.cn/wiremock，添加一个项目，填写服务地址。
-3. 选择刚添加的项目，开始使用（项目数据存放在浏览器的 LocalStorage）。
+### 1.1. 在線使用
 
-### 1.1. 在线使用
+推薦使用在線網站 https://qadoc.cn/wiremock
 
-推荐使用在线网站 https://qadoc.cn/wiremock
+### 1.2. 本地啟動
 
-### 1.2. 本地启动
-
-1. `npm install` 安装项目依赖。
-2. 以开发模式启动项目：`npm run dev`。
+1. `npm install` 安裝項目依賴。
+2. 以開發模式啟動項目：`npm run dev`。
 
 ### 1.3. 私有部署
 
-1. `npm install` 安装项目依赖。
-2. 生产环境打包：`npm run build`。
-3. 将打包后生成的 dist 目录下的文件部署到相应服务器下。这里以 Nginx 为例。
-
-**IP和PORT部署**
-
-執行時請先設定好環境變數
-
-Hostname: VITE_HOST
-
-Port: VITE_PORT
-
-範例:
-
-export VITE_HOST='0.0.0.0'
-
-export VITE_PORT=5173
-
+1. `npm install` 安裝項目依賴。
+2. 生產環境打包：`npm run build`。
+3. 將打包後生成的 dist 目錄下的文件部署到相應服務器下。這里以 Nginx 為例。
 
 **域名部署**
 
-vite.config.ts 基础路径配置。
+vite.config.ts 基礎路徑配置。
 
 ```
 base: './',
@@ -62,9 +46,24 @@ Nginx 配置。
     }
 ```
 
-**二级目录部署**
+**IP和PORT部署**
 
-vite.config.ts 中修改二级目录路径，这里是 wiremock。
+執行時請先設定好環境變數
+
+Hostname: VITE_HOST
+
+Port: VITE_PORT
+
+範例:
+
+export VITE_HOST='0.0.0.0'
+
+export VITE_PORT=5173
+
+
+**二級目錄部署**
+
+vite.config.ts 中修改二級目錄路徑，這裡是 wiremock。
 
 ```
 base: '/wiremock',
@@ -80,30 +79,28 @@ Nginx 配置。
     }
 ```
 
-## 2. 开发项目
+## 2. 開發項目
 
-推荐开发环境：VSCode + Vue Language Features (Volar) 插件。
+推薦開發環境：VSCode + Vue Language Features (Volar) 插件。
 
-- 以开发模式启动项目：`npm run dev`。
-- 运行单元测试：`npm run test:unit`。
+- 以開發模式啟動項目：`npm run dev`。
+- 運行單元測試：`npm run test:unit`。
 
 ## 3. Todo List
 
-- [ ] feature：Stubs - 详情页 - request - JSON/XML/HTML 编辑器
-- [ ] feature：Stubs - 详情页 - request - customMatcher
-- [ ] feature：Stubs - 详情页 - response - transformers
-- [ ] feature：Stubs - 详情页 - 表单校验
-- [ ] feature：Stubs - 搜索 - 高级搜索
+- [ ] feature：Stubs - 詳情頁 - request - JSON/XML/HTML 編輯器
+- [ ] feature：Stubs - 詳情頁 - request - customMatcher
+- [ ] feature：Stubs - 詳情頁 - response - transformers
+- [ ] feature：Stubs - 詳情頁 - 表單校驗
+- [ ] feature：Stubs - 搜索 - 高級搜索
 - [ ] feature：Stubs - Record
 - [ ] feature：Stubs - Import
-- [ ] feature：Stubs - 场景管理
+- [ ] feature：Stubs - 場景管理
 - [ ] feature：Stubs - 文件管理
-- [ ] feature：Logs - 日志详情页 - 表单形式展示
-- [ ] feature：Logs - 搜索 - 高级搜索
-- [ ] feature：Settings - 语言选择
-- [ ] feature：Settings - Wiremock 全局设置
-- [ ] feature：Settings - 关机
-- [ ] feature：Settings - 在线/离线检测？
-- [ ] fix：重构详情页渲染数据结构（分块：general/request/response/postserveactions）
-
-
+- [ ] feature：Logs - 日誌詳情頁 - 表單形式展示
+- [ ] feature：Logs - 搜索 - 高級搜索
+- [ ] feature：Settings - 語言選擇
+- [ ] feature：Settings - Wiremock 全局設置
+- [ ] feature：Settings - 關機
+- [ ] feature：Settings - 在線/離線檢測？
+- [ ] fix：重構詳情頁渲染數據結構（分塊：general/request/response/postserveactions）

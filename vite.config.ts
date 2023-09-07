@@ -1,17 +1,25 @@
 import { fileURLToPath, URL } from 'node:url'
 
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [vue(), vueJsx()],
-  // base: './',           //域名部署，即： http://localhost:5173/
-  base: '/wiremock',   //二级目录部署，即：http://localhost:5173/wiremock
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  }
-})
+export default ({ mode }) => {
+    //process.env = {...process.env, ...loadEnv(mode, process.cwd())};
+    process.env = { ...process.env, ...loadEnv(mode, process.cwd(), '') };
+    return defineConfig({
+        server: {
+            port: parseInt(process.env.VITE_PORT),
+            host: process.env.VITE_HOST,
+        },
+        plugins: [vue(), vueJsx()],
+        // base: './',           //..................... http://localhost:5173/
+        base: '/wiremock',   //...........................http://localhost:5173/wiremock
+        resolve: {
+            alias: {
+                '@': fileURLToPath(new URL('./src', import.meta.url))
+            }
+        }
+    })
+}

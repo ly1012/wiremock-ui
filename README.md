@@ -28,6 +28,21 @@ WireMock UI 基于 [Wiremock](https://wiremock.org/) Admin API 开发，用于 S
 2. 生产环境打包：`npm run build`。
 3. 将打包后生成的 dist 目录下的文件部署到相应服务器下。这里以 Nginx 为例。
 
+**IP和PORT部署**
+
+執行時請先設定好環境變數
+
+Hostname: VITE_HOST
+
+Port: VITE_PORT
+
+範例:
+
+export VITE_HOST='0.0.0.0'
+
+export VITE_PORT=5173
+
+
 **域名部署**
 
 vite.config.ts 基础路径配置。

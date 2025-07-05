@@ -7,10 +7,21 @@ WireMock UI 基于 [Wiremock](https://wiremock.org/) Admin API 开发，用于 S
 
 ## 1. 使用说明
 
+**最低要求**
+
+- wiremock 2.30.0 及以上版本（更早的版本，stubmapping 格式不兼容）
+
 **使用步骤**
 
 1. 启动一个 Wiremock 服务，参考 [webhooks-and-callbacks](https://wiremock.org/docs/webhooks-and-callbacks/)。
-2. 访问 https://qadoc.cn/wiremock，添加一个项目，填写服务地址。
+
+```bash
+# 使用 2.30.0 版本启动一个 WireMock 服务
+java -jar wiremock-jre8-standalone-2.30.0.jar \
+  --global-response-templating -port=8235 --https-port=8443 --container-threads=20
+```
+
+2. 访问 https://qadoc.cn/wiremock ，添加一个项目，填写服务地址。
 3. 选择刚添加的项目，开始使用（项目数据存放在浏览器的 LocalStorage）。
 
 ### 1.1. 在线使用
